@@ -30,11 +30,12 @@ st.divider()
 # Predict button
 if st.button("Predict Attrition"):
     input_data = np.array([[age, income, years]])
-    prediction = model.predict(input_data)
-
+    proba = model.predict_proba(input_data)[0][1]
     st.subheader("Prediction Result")
 
-    if prediction[0] == 1:
-        st.error("⚠️ High Risk: Employee likely to leave")
-    else:
-        st.success("✅ Low Risk: Employee likely to stay")
+if proba > 0.4:
+    st.error("🔴 High Risk")
+elif proba > 0.25:
+    st.warning("🟠 Medium Risk")
+else:
+    st.success("🟢 Low Risk")

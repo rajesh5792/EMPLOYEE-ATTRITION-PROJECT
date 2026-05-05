@@ -1,8 +1,9 @@
-import streamlit as st
+import streamlit as st 
+import pickle
 import numpy as np
-from joblib import load
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
-model = load('model.pkl')
 # Page config
 st.set_page_config(page_title="Attrition Predictor", layout="centered")
 

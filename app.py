@@ -33,9 +33,9 @@ if st.button("Predict Attrition"):
     proba = model.predict_proba(input_data)[0][1]
     st.subheader("Prediction Result")
 
-if proba > 0.4:
-    st.error("🔴 High Risk")
-elif proba > 0.25:
-    st.warning("🟠 Medium Risk")
-else:
-    st.success("🟢 Low Risk")
+    if proba > 0.4:
+        st.error("🔴 High Risk")
+    elif proba > 0.25:
+        st.warning("🟠 Medium Risk")
+    else:
+        st.success("🟢 Low Risk")

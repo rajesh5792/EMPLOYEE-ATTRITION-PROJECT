@@ -10,10 +10,10 @@ from PIL import Image
 with open('model.pkl', 'rb') as f:
     lr = pickle.load(f)
 
-df = pd.read_csv(r"C:\Users\logan\OneDrive\Desktop\Employee Attrition project\HR-Employee-Attrition.csv")
+df = pd.read_csv("HR-Employee-Attrition.csv")
 
 # Page config
-icon = Image.open(r"C:\Users\logan\OneDrive\Desktop\Employee Attrition project\logo.png")
+icon = Image.open("logo.png")
 st.set_page_config(
     page_title="Employee Attrition Predictor",
     page_icon=icon,
